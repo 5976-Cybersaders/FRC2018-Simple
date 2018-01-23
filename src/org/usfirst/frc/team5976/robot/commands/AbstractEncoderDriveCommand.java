@@ -14,7 +14,7 @@ public abstract class AbstractEncoderDriveCommand extends Command {
 	protected int printCounter = 1, printInterval = 1;
 	private double previousError;
 	private long t0 = 0;
-	protected int allowableError = 10;
+	protected int allowableError = 75;
 	private double currentError;
 
 	// Wheel Values

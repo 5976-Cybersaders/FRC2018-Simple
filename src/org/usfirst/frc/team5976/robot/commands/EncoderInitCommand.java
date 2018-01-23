@@ -9,11 +9,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class EncoderInit extends Command {
+public class EncoderInitCommand extends Command {
 	private WPI_TalonSRX leftMaster, rightMaster, leftSlave, rightSlave;
-	private boolean inversion = false;
+	private boolean inversion = true;
 
-	public EncoderInit(DriveTrain driveTrain) {
+	public EncoderInitCommand(DriveTrain driveTrain) {
 		leftMaster = driveTrain.getLeftMaster();
 		rightMaster = driveTrain.getRightMaster();
 		leftSlave = driveTrain.getLeftSlave();
@@ -23,8 +23,8 @@ public class EncoderInit extends Command {
 
 	protected void initialize() {
 		initMaster(leftMaster, -1);
-		leftMaster.setSensorPhase(inversion);
-		//leftMaster.setInverted(inversion);
+//		leftMaster.setSensorPhase(inversion);
+//		leftMaster.setInverted(inversion);
 		initMaster(rightMaster, 1);
 		
 		report(leftMaster, "Left Master");
@@ -83,8 +83,8 @@ public class EncoderInit extends Command {
 		talon.configAllowableClosedloopError(0, (int) SmartDashboardMap.ALLOWABLE_ERROR.getDouble(), 0);
 		//talon.enableControl();
 		
-		talon.configNominalOutputForward(.1, 0);
-		talon.configNominalOutputReverse(-.1, 0);
+		talon.configNominalOutputForward(.2, 0);
+		talon.configNominalOutputReverse(-.2, 0);
 		
 	}
 

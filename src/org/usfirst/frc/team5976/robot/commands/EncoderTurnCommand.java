@@ -48,6 +48,11 @@ public class EncoderTurnCommand extends AbstractEncoderDriveCommand {
 			report(leftSlave);
 			report(rightSlave);
 			
+			leftMaster.setInverted(true);
+			leftSlave.setInverted(true);
+			
+			
+			
 		}
 		
 		protected void execute() {
