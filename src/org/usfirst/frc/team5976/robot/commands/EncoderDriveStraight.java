@@ -46,6 +46,7 @@ public class EncoderDriveStraight extends AbstractEncoderDriveCommand {
 		report(leftSlave);
 		report(rightSlave);
 		
+		
 //		leftMaster.set(ControlMode.Position, -ticks);
 //		leftSlave.follow(leftMaster);
 //		rightMaster.set(ControlMode.Position, 0);
@@ -61,14 +62,14 @@ public class EncoderDriveStraight extends AbstractEncoderDriveCommand {
 		
 		leftMaster.set(0.3);
 		leftSlave.follow(leftMaster);
-//		rightMaster.set(0.3);
-//		rightSlave.set(ControlMode.Follower, rightMaster.getDeviceID());
+		rightMaster.set(0.3);
+		rightSlave.follow(rightMaster);
 
 		if (printCounter == printInterval) {
-			//reportExecute(leftMaster, "Left Master", RobotMap.LEFT_MASTER_PDP);
-			//reportExecute(leftSlave, "Left Slave", RobotMap.LEFT_SLAVE_PDP);
-			reportExecute(rightMaster, "Right Master", RobotMap.RIGHT_MASTER_PDP);
-			reportExecute(rightSlave, "Right Slave", RobotMap.RIGHT_SLAVE_PDP);
+			reportExecute(leftMaster, "Left Master", RobotMap.LEFT_MASTER_PDP);
+			reportExecute(leftSlave, "Left Slave", RobotMap.LEFT_SLAVE_PDP);
+//			reportExecute(rightMaster, "Right Master", RobotMap.RIGHT_MASTER_PDP);
+//			reportExecute(rightSlave, "Right Slave", RobotMap.RIGHT_SLAVE_PDP);
 			System.out.println();
 			printCounter = 0;
 		} else {

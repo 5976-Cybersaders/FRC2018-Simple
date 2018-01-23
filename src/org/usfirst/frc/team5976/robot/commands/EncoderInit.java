@@ -46,13 +46,15 @@ public class EncoderInit extends Command {
 		// Set values here
 		// Profile 1 for Both
 		talon.selectProfileSlot(1, 0);
+		
+		//Side Specific Code
 		talon.configClosedloopRamp(SmartDashboardMap.RAMP_RATE.getDouble(), 0);
 		if (side == -1){//Left
 			talon.config_kP(0, SmartDashboardMap.kPRL.getDouble(), 0);
 			talon.config_kI(0, SmartDashboardMap.kIRL.getDouble(), 0);
 			talon.config_kD(0, SmartDashboardMap.kDRL.getDouble(), 0);
 			
-			talon.selectProfileSlot(1, 0);
+			talon.selectProfileSlot(0, 0);
 			talon.config_kP(0, SmartDashboardMap.kPFL.getDouble(), 0);
 			talon.config_kI(0, SmartDashboardMap.kIFL.getDouble(), 0);
 			talon.config_kD(0, SmartDashboardMap.kDFL.getDouble(), 0);

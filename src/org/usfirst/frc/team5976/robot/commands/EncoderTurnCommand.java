@@ -53,7 +53,7 @@ public class EncoderTurnCommand extends AbstractEncoderDriveCommand {
 		protected void execute() {
 			SmartDashboard.putNumber("Left Revolutions", leftMaster.getSelectedSensorPosition(0));
 			SmartDashboard.putNumber("Right Revolutions", rightMaster.getSelectedSensorPosition(0));
-			leftMaster.set(ControlMode.Position, 0);
+			leftMaster.set(ControlMode.Position, ticks);
 			leftSlave.follow(leftMaster);
 			rightMaster.set(ControlMode.Position, -ticks);
 			rightSlave.follow(rightMaster);
